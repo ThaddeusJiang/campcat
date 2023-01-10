@@ -1,10 +1,30 @@
 # Camp Crawler
 
+from:
+![fumotoppara-calendar](./docs/fumotoppara-calendar.png)
+
+to:
+![telegram-text](./docs/telegram-text.png)
+
 ## Usage
 
 ```
+npm install
+
 npm start
 ```
+
+## Telegram Integration
+
+```
+export TELEGRAM_TOKEN=<token> TELEGRAM_CHAT_ID=<chat_id>
+
+npm run send:telegram
+```
+
+## Scheduled Runner
+
+[GitHub Actions](./.github/workflows/preview.yml)
 
 ## Crawlee + PlaywrightCrawler + TypeScript project
 
