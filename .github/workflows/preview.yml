@@ -2,17 +2,17 @@ name: preview
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 env:
-  NODE_VERSION: '16.x'
+  NODE_VERSION: "16.x"
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout GitHub Action'
+      - name: "Checkout GitHub Action"
         uses: actions/checkout@v2
 
       - name: Setup Node ${{ env.NODE_VERSION }} Environment
@@ -20,10 +20,12 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: 'install, build'
+      - name: "install, build"
         shell: bash
         run: |
           pushd './'
           npm install
           npm start
+
+          npm run send:telegram
           popd
