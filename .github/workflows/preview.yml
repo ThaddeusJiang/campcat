@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: "install, build"
+      - name: "install, run"
         shell: bash
         run: |
           pushd './'
@@ -29,3 +29,6 @@ jobs:
 
           npm run send:telegram
           popd
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_TO: ${{ secrets.TELEGRAM_TO }}
