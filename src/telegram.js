@@ -16,7 +16,10 @@ const __dirname = new URL(import.meta.url).pathname;
 function main() {
   try {
     const text = readFileSync(path.resolve(__dirname, "../../storage/datasets/default/000000001.json"), "utf8");
-    bot.sendMessage(chatId, text);
+    const { availableDays } = JSON.parse(text);
+    if (availableDays.length > 0) {
+      bot.sendMessage(chatId, text);
+    }
   } catch (err) {
     console.error(err);
   }

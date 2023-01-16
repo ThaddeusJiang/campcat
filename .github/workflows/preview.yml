@@ -2,7 +2,7 @@ name: preview
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 10-14 * * *"
   workflow_dispatch:
 
 env:
