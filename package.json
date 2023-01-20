@@ -1,8 +1,18 @@
 {
-  "name": "camp-crawler",
-  "version": "1.0.0-beta.0",
+  "name": "campcat",
+  "version": "1.0.0-beta.1",
+  "description": "Crawl camp sites and alert the available Saturdays.",
+  "author": "Thaddeus Jiang",
+  "license": "GPL-3.0",
   "type": "module",
-  "description": "Crawl camp sites",
+  "scripts": {
+    "start": "npm run start:dev",
+    "start:prod": "node dist/main.js",
+    "start:dev": "ts-node-esm -T src/main.ts",
+    "build": "tsc",
+    "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
+    "send:telegram": "node src/telegram.js"
+  },
   "dependencies": {
     "crawlee": "^3.0.0",
     "dotenv": "^16.0.3",
@@ -14,15 +24,5 @@
     "@apify/tsconfig": "^0.1.0",
     "ts-node": "^10.8.0",
     "typescript": "^4.7.4"
-  },
-  "scripts": {
-    "start": "npm run start:dev",
-    "start:prod": "node dist/main.js",
-    "start:dev": "ts-node-esm -T src/main.ts",
-    "build": "tsc",
-    "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
-    "send:telegram": "node src/telegram.js"
-  },
-  "author": "Thaddeus Jiang",
-  "license": "GPL-3.0"
+  }
 }
