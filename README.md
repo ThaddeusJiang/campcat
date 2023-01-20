@@ -26,7 +26,7 @@ npm start
 ## Telegram Integration
 
 ```
-export TELEGRAM_TOKEN=<token> TELEGRAM_CHAT_ID=<chat_id>
+export TELEGRAM_TOKEN=<token>
 
 npm run send:telegram
 ```
