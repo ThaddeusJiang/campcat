@@ -46,7 +46,7 @@ npm run send:telegram
 
 ## Scheduled Runner
 
-[GitHub Actions](./.github/workflows/preview.yml)
+[GitHub Actions](.github/workflows/telegram.yml)
 
 ## Author
 

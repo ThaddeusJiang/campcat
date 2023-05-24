@@ -27,12 +27,15 @@ const getChatIds = async () => {
 
 async function main() {
   try {
-    const text = readFileSync(path.resolve(__dirname, "../../storage/datasets/default/000000001.json"), "utf8");
-    const { availableDays } = JSON.parse(text);
-    if (availableDays.length > 0) {
+    const result = readFileSync(path.resolve(__dirname, "../../storage/datasets/default/000000001.json"), "utf8");
+    const { availableDays } = JSON.parse(result);
+    const total = availableDays.length;
+    if (total) {
       const chatIds = await getChatIds();
-      chatIds.forEach((chatId) => bot.sendMessage(chatId, text));
-      console.log(`Message was sent to ${chatIds.length} clients!!!`);
+      chatIds.forEach((chatId) => bot.sendMessage(chatId, result));
+      console.log(`There are ${total} days available for booking, and it has been sent to ${chatIds.length} clients!!!`);
+    } else {
+      console.log("No available days, no message sent");
     }
   } catch (err) {
     console.error(err);
