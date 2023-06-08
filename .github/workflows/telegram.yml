@@ -2,7 +2,7 @@ name: "Send Telegram Message"
 
 on:
   schedule:
-    - cron: "0 10-14 * * *"
+    - cron: "0 0-14 * * *"
   workflow_dispatch:
 
 env:
