@@ -6,11 +6,7 @@
   "license": "GPL-3.0",
   "type": "module",
   "scripts": {
-    "start": "npm run start:dev",
-    "start:prod": "node dist/main.js",
-    "start:dev": "ts-node-esm -T src/main.ts",
-    "build": "tsc",
-    "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1",
+    "start": "ts-node src/main.ts",
     "send:telegram": "node src/telegram.js"
   },
   "dependencies": {
