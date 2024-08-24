@@ -6,7 +6,7 @@
   "license": "GPL-3.0",
   "type": "module",
   "scripts": {
-    "start": "npx tsx src/main.ts",
+    "start": "tsx src/main.ts",
     "send:telegram": "node src/telegram.js"
   },
   "dependencies": {
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@apify/tsconfig": "^0.1.0",
-    "ts-node": "^10.8.0",
+    "tsx": "^4.17.0",
     "typescript": "^4.7.4"
   }
 }
