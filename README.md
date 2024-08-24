@@ -1,52 +1,37 @@
-# Camp Cat
+# ふもとボット
 
-[![License: GPL--3.0](https://img.shields.io/badge/License-GPL--3.0-yellow.svg)](#)
-[![Twitter: ThaddeusJiang](https://img.shields.io/twitter/follow/ThaddeusJiang.svg?style=social)](https://twitter.com/ThaddeusJiang)
+ふもとっぱらキャンプ場は土曜日に空いていますか？
 
-> Crawl camp sites and alert the available Saturdays.
-
-source:
-![fumotoppara-calendar](./docs/fumotoppara-calendar.png)
-
-to:
-![telegram-text](./docs/telegram-text.png)
+[![License: GPL--3.0](https://img.shields.io/badge/License-GPL--3.0-yellow.svg)](./License.md)
 
 ## Usage
 
-Send a message to https://t.me/campcatbot, wait for the available days of [ふもとっぱらキャンプ宿泊](https://reserve.fumotoppara.net/reserved/reserved-calendar-list).
+1. Send a message to https://t.me/fumoto_bot
+2. Wait the bot reply when available days was found.
 
-<details>
-<summary>
-Scan QRCode
-</summary>
+<img src="./docs/telegram-message.png" alt="telegram message" height="400px">
 
-![campcatbot QRCode](./docs/campcatbot.JPG)
+## Develop
 
-</details>
-
-## Install
+install
 
 ```sh
 npm install
 ```
 
-## Usage
+crawl
 
 ```
 npm start
 ```
 
-## Telegram Integration
+send message to telegram
 
 ```
 export TELEGRAM_TOKEN=<token>
 
 npm run send:telegram
 ```
-
-## Scheduled Runner
-
-[GitHub Actions](.github/workflows/telegram.yml)
 
 ## Author
 
@@ -60,6 +45,6 @@ npm run send:telegram
 
 Give a ⭐️ if this project helped you!
 
----
+## Refs
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+- https://reserve.fumotoppara.net/reserved/reserved-calendar-list
