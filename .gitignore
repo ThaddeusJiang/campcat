@@ -8,3 +8,4 @@ crawlee_storage
 storage
 
 .env
+.DS_Store

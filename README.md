@@ -1,7 +1,7 @@
-# Camp Cat
+# ふもとっぱらキャンプ場
 
 [![License: GPL--3.0](https://img.shields.io/badge/License-GPL--3.0-yellow.svg)](#)
-[![Twitter: ThaddeusJiang](https://img.shields.io/twitter/follow/ThaddeusJiang.svg?style=social)](https://twitter.com/ThaddeusJiang)
+[![X: ThaddeusJiang](https://img.shields.io/twitter/follow/ThaddeusJiang.svg?style=social)](https://twitter.com/ThaddeusJiang)
 
 > Crawl camp sites and alert the available Saturdays.
 

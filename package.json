@@ -6,7 +6,7 @@
   "license": "GPL-3.0",
   "type": "module",
   "scripts": {
-    "start": "ts-node-esm --esm src/main.ts",
+    "start": "npx tsx src/main.ts",
     "send:telegram": "node src/telegram.js"
   },
   "dependencies": {
