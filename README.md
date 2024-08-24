@@ -2,7 +2,7 @@
 
 ふもとっぱらキャンプ場は土曜日に空いていますか？
 
-[![License: GPL--3.0](https://img.shields.io/badge/License-GPL--3.0-yellow.svg)](./License.md)
+[![License: GPL--3.0](https://img.shields.io/badge/License-GPL--3.0-yellow.svg)](./LICENSE)
 
 ## Usage
 
