@@ -1,36 +1,33 @@
-# ふもとボット
-
-ふもとっぱらキャンプ場は土曜日に空いていますか？
+# Campcat
 
 [![License: GPL--3.0](https://img.shields.io/badge/License-GPL--3.0-yellow.svg)](./LICENSE)
 
+キャンプ場予約情報監視 Bot
+
+## キャンプ場
+
+- [x] ふもとっぱらキャンプ場
+- [x] 洪庵キャンプ場
+
 ## Usage
 
-1. Send a message to https://t.me/fumoto_bot
-2. Wait the bot reply when available days was found.
+Just subscribe
 
-<img src="./docs/telegram-message.png" alt="telegram message" height="400px">
+- 東日本 https://t.me/jp_higasi_camp
+- 西日本 will be created if someone need
 
 ## Develop
-
-install
 
 ```sh
 npm install
 ```
 
-crawl
-
-```
-npm start
-```
-
-send message to telegram
-
-```
+```sh
 export TELEGRAM_TOKEN=<token>
 
-npm run send:telegram
+npm run fumoto
+# OR
+npm run kouan
 ```
 
 ## Author
@@ -48,3 +45,4 @@ Give a ⭐️ if this project helped you!
 ## Refs
 
 - https://reserve.fumotoppara.net/reserved/reserved-calendar-list
+- https://kouan-motosuko.com/reserve/Reserve/input/?type=camp

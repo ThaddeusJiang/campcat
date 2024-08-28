@@ -1,0 +1,26 @@
+name: "洪庵"
+
+on:
+  schedule:
+    - cron: "5 0-14 * * *"
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 16
+
+      - name: "install, run"
+        shell: bash
+        run: |
+          pushd './'
+          npm install
+          npm run kouan
+
+          popd
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.KOUAN_TG_TOKEN }}

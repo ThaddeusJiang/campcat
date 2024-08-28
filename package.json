@@ -1,13 +1,14 @@
 {
-  "name": "fumoto-campsite-crawler",
+  "name": "campcat",
   "version": "2024-08-24",
   "description": "Crawl camp sites and alert the available Saturdays.",
   "author": "Thaddeus Jiang",
   "license": "GPL-3.0",
   "type": "module",
   "scripts": {
-    "start": "tsx src/main.ts",
-    "send:telegram": "node src/telegram.js"
+    "fumoto": "CRAWLEE_DEFAULT_DATASET_ID=fumoto tsx src/fumoto.ts",
+    "kouan": "CRAWLEE_DEFAULT_DATASET_ID=kouan tsx src/kouan.ts",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "crawlee": "^3.0.0",
@@ -18,7 +19,8 @@
   },
   "devDependencies": {
     "@apify/tsconfig": "^0.1.0",
+    "@types/node-telegram-bot-api": "^0.64.7",
     "tsx": "^4.17.0",
-    "typescript": "^4.7.4"
+    "typescript": "^5.7.0-dev.20240827"
   }
 }
