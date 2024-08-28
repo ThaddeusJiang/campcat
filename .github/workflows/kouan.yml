@@ -1,4 +1,4 @@
-name: "Send Telegram Message"
+name: "洪庵"
 
 on:
   schedule:
