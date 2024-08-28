@@ -2,7 +2,7 @@ name: "Send Telegram Message"
 
 on:
   schedule:
-    - cron: "0 0-14 * * *"
+    - cron: "5 0-14 * * *"
   workflow_dispatch:
 
 jobs:
@@ -19,9 +19,8 @@ jobs:
         run: |
           pushd './'
           npm install
-          npm start
+          npm run kouan
 
-          npm run send:telegram
           popd
         env:
-          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_TOKEN: ${{ secrets.KOUAN_TG_TOKEN }}
