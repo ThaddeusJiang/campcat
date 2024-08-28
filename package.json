@@ -1,5 +1,5 @@
 {
-  "name": "fumoto-campsite-crawler",
+  "name": "campcat",
   "version": "2024-08-24",
   "description": "Crawl camp sites and alert the available Saturdays.",
   "author": "Thaddeus Jiang",

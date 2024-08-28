@@ -20,11 +20,12 @@ const getChatIds = async () => {
   const chatIds = await fetch(url)
     .then((res) => res.json())
     .then((res) => {
+      // console.debug("getUpdates response", res)
       const result = (res as GetUpdatesResponse).result as {
         message?: { chat: { id: number } }
         channel_post?: { chat: { id: number } }
       }[]
-      return result.map((item: { message?: { chat: { id: number } }; channel_post?: { chat: { id: number } } }) => {
+      return result?.map((item: { message?: { chat: { id: number } }; channel_post?: { chat: { id: number } } }) => {
         if (item.message) {
           return item.message.chat.id
         }
