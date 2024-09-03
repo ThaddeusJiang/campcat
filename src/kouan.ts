@@ -45,12 +45,7 @@ const crawler = new PlaywrightCrawler({
 
           const dateStr = day.querySelector(".dateStr") as HTMLInputElement
 
-          return options?.length
-            ? JSON.stringify({
-                options,
-                dateStr: dateStr?.value,
-              })
-            : undefined
+          return options?.length ? { options, dateStr: dateStr?.value } : undefined
         })
         .filter(Boolean)
     })
@@ -81,9 +76,7 @@ async function getKouanDataset(filename: string) {
   const resultStr = readFileSync(path.resolve(__dirname, `../../storage/datasets/kouan/${filename}`), "utf8")
   const { title, url, availableDays } = JSON.parse(resultStr)
 
-  return availableDays.length
-    ? { title, url, availableDays: availableDays.map((str: string) => JSON.parse(str)) }
-    : null
+  return availableDays.length ? { title, url, availableDays } : null
 }
 
 interface KouanDataset {
