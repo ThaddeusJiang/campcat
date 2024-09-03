@@ -1,6 +1,6 @@
 {
   "name": "campcat",
-  "version": "2024-08-24",
+  "version": "2024-09-03",
   "description": "Crawl camp sites and alert the available Saturdays.",
   "author": "Thaddeus Jiang",
   "license": "GPL-3.0",

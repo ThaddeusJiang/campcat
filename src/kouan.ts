@@ -33,8 +33,19 @@ const crawler = new PlaywrightCrawler({
     const availableDays = await page.$$eval("tr > td:nth-child(7)", (days) => {
       return days
         .map((day) => {
+          const options: string[] = []
+          day
+            .querySelector("#plan_detail_no")
+            ?.querySelectorAll("option")
+            .forEach((option) => {
+              if (option.value && option.getAttribute("disabled") === null) {
+                options.push(option.innerText)
+              }
+            })
+
           const dateStr = day.querySelector(".dateStr") as HTMLInputElement
-          return dateStr?.value
+
+          return options?.length ? { options, dateStr: dateStr?.value } : undefined
         })
         .filter(Boolean)
     })
@@ -60,9 +71,7 @@ const crawler = new PlaywrightCrawler({
   // headless: false,
 })
 
-async function getKouanDataset(
-  filename: string
-): Promise<{ title: string; url: string; availableDays: string[] } | null> {
+async function getKouanDataset(filename: string) {
   const __dirname = new URL(import.meta.url).pathname
   const resultStr = readFileSync(path.resolve(__dirname, `../../storage/datasets/kouan/${filename}`), "utf8")
   const { title, url, availableDays } = JSON.parse(resultStr)
@@ -70,25 +79,33 @@ async function getKouanDataset(
   return availableDays.length ? { title, url, availableDays } : null
 }
 
-async function genKouanMessage() {
-  const datasets = (await Promise.all([
-    getKouanDataset("000000001.json"),
-    getKouanDataset("000000002.json"),
-    getKouanDataset("000000003.json"),
-  ]).then((items) => items.filter(Boolean))) as {
-    title: string
-    url: string
-    availableDays: string[]
+interface KouanDataset {
+  title: string
+  url: string
+  availableDays: {
+    options: string[]
+    dateStr: string
   }[]
+}
 
-  const message = datasets.length
-    ? [
-        `浩庵キャンプ場（土曜日）`,
-        `${datasets
-          .map(({ availableDays, url }) => [availableDays.join("\n"), `予約：${url}`].join("\n\n"))
-          .join("\n\n")}`,
-      ].join("\n\n")
-    : null
+function genMessage(dataset: KouanDataset) {
+  if (dataset.availableDays.length === 0) {
+    return null
+  }
+  return dataset.availableDays
+    ?.map(({ options, dateStr }) =>
+      [`日付：${dateStr}`, `時間：` + options.join("\n"), `予約：${dataset.url}`].join("\n\n")
+    )
+    .join("\n\n")
+}
+
+async function genKouanMessage() {
+  const data1 = (await getKouanDataset("000000001.json")) as KouanDataset
+  const data2 = (await getKouanDataset("000000002.json")) as KouanDataset
+  const data3 = (await getKouanDataset("000000003.json")) as KouanDataset
+  const datasets = [data1, data2, data3].filter(Boolean)
+
+  const message = datasets.length ? [`浩庵キャンプ場（土曜日）`, datasets.map(genMessage)].join("\n\n") : null
 
   return message
 }
@@ -97,6 +114,7 @@ async function main() {
   await crawler.run(startUrls)
   const message = await genKouanMessage()
   if (message) {
+    // console.debug(message)
     await send_message(message)
   } else {
     console.log("No available days, no message sent")
